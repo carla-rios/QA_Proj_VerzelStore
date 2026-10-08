@@ -23,7 +23,7 @@ Ao voltar, responda as três ou diga "pode seguir com as recomendações".
 - `package.json` sem scripts. `README.md` só tem o título.
 
 ## Próximos passos
-- **Etapa 0:** criar `docs/`, `docs/img/`, `features/`; renomear o teste; `baseURL` + só chromium; scripts `test` e `test:report`; conferir `.gitignore`.
+- **Etapa 0:** criar `docs/` e `features/` (prints vão em `Evidences/`, que já existe); renomear o teste; `baseURL` + só chromium; scripts `test` e `test:report`; conferir `.gitignore`.
 - **Etapa 1 (exploração):** navegar vitrine, carrinho, checkout e confirmação, anotando seletores reais.
 - **Etapas 2 a 7:** cenários Gherkin, execução manual, bugs, automação, evidências, README e entrega.
 

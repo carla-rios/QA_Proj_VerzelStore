@@ -52,7 +52,7 @@ O package.json não tem scripts e o README está vazio.
 Plano passo a passo
 Etapa 0 – Organização (30 min)
 
-Criar as pastas docs/, docs/img/ e tests/, e renomear o arquivo de teste com o erro de digitação.
+Criar as pastas docs/ e tests/, e renomear o arquivo de teste com o erro de digitação.
 Colocar o baseURL no config, trocar page.goto('/') pelo caminho curto e deixar só o chromium.
 Adicionar os scripts test e test:report no package.json.
 Conferir se o .gitignore cobre node_modules, playwright-report e test-results.
@@ -72,7 +72,7 @@ Dar um ID a cada cenário (por exemplo CT-01) e marcar quais serão automatizado
 # Etapa 3 – Execução manual e exploratória (3–4 h)
 
 Executar cada cenário e registrar passou/falhou numa tabela.
-Tirar print de cada resultado, principalmente das falhas.
+Tirar print de cada resultado, principalmente das falhas, e salvar na pasta Evidences/ (na raiz do projeto).
 Fazer uma sessão exploratória: limites (R$ 199,99, R$ 200,00, R$ 200,01), 5 e 6 unidades, cupom com espaço e em minúsculas, e trocar de cupom.
 Testar a API direto (calcular e pedidos) para comparar com a interface.
 
@@ -83,8 +83,8 @@ Registrar as ambiguidades e a sua interpretação, como o PDF pede.
 
 # Etapa 6 – Evidências (1 h)
 
-Montar o docs/04-evidencias.md com os prints organizados por cenário e por bug.
-Gerar o relatório HTML do Playwright e guardar um print dele.
+Montar o docs/04-evidencias.md com os prints organizados por cenário e por bug. Todas as imagens ficam em Evidences/ (manuais e da automação); não usar outra pasta de imagens.
+Gerar o relatório HTML do Playwright e guardar um print dele em Evidences/.
 
 # Etapa 7 – README e entrega (1 h)
 
@@ -100,8 +100,8 @@ Estrutura final
 │   ├── 01-cenarios.md
 │   ├── 02-execucao.md
 │   ├── 03-bugs.md
-│   ├── 04-evidencias.md
-│   └── img/
+│   └── 04-evidencias.md
+├── Evidences/           ← todos os prints (manuais e automação)
 ├── features/            ← arquivos .feature (Gherkin)
 └── tests/
     ├── 01-acesso.spec.ts

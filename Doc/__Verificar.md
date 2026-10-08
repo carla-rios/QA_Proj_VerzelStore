@@ -1,7 +1,7 @@
 1	Cenários de teste (Gherkin é diferencial)	docs/01-cenarios.md e arquivos .feature
 2	Execução manual/exploratória, com o resultado de cada cenário	docs/02-execucao.md
 3	Report dos bugs	docs/03-bugs.md
-4	Documento de evidências (prints)	docs/04-evidencias.md e docs/img/
+4	Documento de evidências (prints)	docs/04-evidencias.md e Evidences/
 5	Automação de no mínimo 3 cenários com Playwright	tests/
 6	README: como rodar e onde achar cada entrega	README.md
 7	Tudo em um repositório público no GitHub	você publica
