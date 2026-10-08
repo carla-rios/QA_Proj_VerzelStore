@@ -52,7 +52,7 @@ O package.json não tem scripts e o README está vazio.
 Plano passo a passo
 Etapa 0 – Organização (30 min)
 
-Criar as pastas docs/ e tests/, e renomear o arquivo de teste com o erro de digitação.
+Criar as pastas Doc/, Doc/Evidences/, Doc/Bug/ e tests/, e renomear o arquivo de teste com o erro de digitação.
 Colocar o baseURL no config, trocar page.goto('/') pelo caminho curto e deixar só o chromium.
 Adicionar os scripts test e test:report no package.json.
 Conferir se o .gitignore cobre node_modules, playwright-report e test-results.
@@ -72,7 +72,7 @@ Dar um ID a cada cenário (por exemplo CT-01) e marcar quais serão automatizado
 # Etapa 3 – Execução manual e exploratória (3–4 h)
 
 Executar cada cenário e registrar passou/falhou numa tabela.
-Tirar print de cada resultado, principalmente das falhas, e salvar na pasta Evidences/ (na raiz do projeto).
+Tirar print de cada resultado: testes que passaram vão para Doc/Evidences/ e testes que falharam (bugs) vão para Doc/Bug/.
 Fazer uma sessão exploratória: limites (R$ 199,99, R$ 200,00, R$ 200,01), 5 e 6 unidades, cupom com espaço e em minúsculas, e trocar de cupom.
 Testar a API direto (calcular e pedidos) para comparar com a interface.
 
@@ -83,8 +83,9 @@ Registrar as ambiguidades e a sua interpretação, como o PDF pede.
 
 # Etapa 6 – Evidências (1 h)
 
-Montar o docs/04-evidencias.md com os prints organizados por cenário e por bug. Todas as imagens ficam em Evidences/ (manuais e da automação); não usar outra pasta de imagens.
-Gerar o relatório HTML do Playwright e guardar um print dele em Evidences/.
+Organizar os prints por cenário e por bug. Testes que passaram: Doc/Evidences/. Testes que falharam: Doc/Bug/, junto com o documento de bugs (Doc/Bug/Bugs - Documentação.md). Não usar outra pasta de imagens.
+Os testes automatizados salvam o print sozinhos ao final de cada teste (test.afterEach), na pasta certa conforme o resultado.
+Gerar o relatório HTML do Playwright e guardar um print dele em Doc/Evidences/.
 
 # Etapa 7 – README e entrega (1 h)
 
@@ -96,15 +97,15 @@ Estrutura final
 ├── README.md
 ├── playwright.config.ts
 ├── package.json
-├── docs/
-│   ├── 01-cenarios.md
-│   ├── 02-execucao.md
-│   ├── 03-bugs.md
-│   └── 04-evidencias.md
-├── Evidences/           ← todos os prints (manuais e automação)
-├── features/            ← arquivos .feature (Gherkin)
+├── Doc/
+│   ├── Bug/
+│   │   ├── Bugs - Documentação.md   ← report dos bugs
+│   │   └── *.png                    ← prints dos testes que falharam
+│   ├── Evidences/                   ← prints dos testes que passaram
+│   ├── PDF/                         ← enunciado do teste técnico
+│   └── Plano de execução/
+├── features/                        ← arquivos .feature (Gherkin)
 └── tests/
-    ├── 01-acesso.spec.ts
-    ├── 02-cupom.spec.ts
-    ├── 03-frete.spec.ts
-    └── 04-api.spec.ts
+    ├── 00 - Validar Funcionamento PW.spec.ts
+    ├── 01 - Tela Home-Produtos.spec.ts
+    └── 02 - Tela Carrinho.spec.ts
