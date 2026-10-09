@@ -2,9 +2,9 @@ import { test, expect } from '@playwright/test';
 
 test.afterEach(async ({ page }, testInfo) => {
 	// Evidência: salva o print da tela ao final de cada teste (somente no chromium, para não repetir por navegador)
-	// Teste que passou vai para Doc/Evidences; teste que falhou (bug) vai para Doc/Bug
+	// Teste que passou vai para Doc/04 - Evidences; teste que falhou (bug) vai para Doc/05 - Bug
 	if (testInfo.project.name !== 'chromium') return;
-	const pasta = testInfo.status === 'passed' ? 'Doc/Evidences' : 'Doc/Bug';
+	const pasta = testInfo.status === 'passed' ? 'Doc/04 - Evidences' : 'Doc/05 - Bug';
 	const nomeArquivo = testInfo.title.replace(/[\\/:*?"<>|]/g, '');
 	await page.screenshot({ path: `${pasta}/${nomeArquivo}.png`, fullPage: true });
 });
@@ -113,7 +113,7 @@ test('TC 2.5 - CA05 - Validar que apenas um cupom pode ser aplicado por vez', as
 
 // ATENÇÃO: este teste FALHA de propósito, por causa de um bug real.
 // Com subtotal de exatamente R$ 200,00 a loja cobra frete de R$ 19,90 e mostra
-// "Faltam R$ 0,00 para o frete grátis.". O bug está descrito em Doc/Bug/Bugs - Documentação.md (BUG-01).
+// "Faltam R$ 0,00 para o frete grátis.". O bug está descrito em Doc/05 - Bug/Bugs - Documentação.md (BUG-01).
 test('TC 2.6 - CA06 - Validar frete grátis com subtotal de exatamente R$ 200,00', async ({ page }) => {
 	// Dado que aumentei a quantidade da Mochila Urbana 20L para 2 unidades
 	await page.getByRole('button', { name: 'Aumentar quantidade de Mochila Urbana 20L' }).click();
